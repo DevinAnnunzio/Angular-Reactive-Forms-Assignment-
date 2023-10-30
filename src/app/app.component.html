@@ -14,6 +14,26 @@
 
           Upon submitting the form, simply print the value to the console
       -->
+
+      <form [formGroup]="theForm" (submit)="onSubmit()">
+        <div class="form-group">
+          <label for="projectName">Project name</label>
+          <input
+          type="text"
+          id="projectName"
+          class="form-control"
+          formControlName="projectName"
+          >
+          <span class="help-block" *ngIf=" !theForm.get('projectName').valid && theForm.controls['projectName'].errors['forbiddenProjectNames']">Can't use that name for your project</span>
+
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="theForm.invalid">Submit</button>
+
+      </form>
+
+
+
     </div>
   </div>
 </div>
