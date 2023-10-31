@@ -40,8 +40,9 @@
           <span class="help-block" *ngIf="!theForm.get('email').valid && theForm.get('email').touched">Please enter a valid email</span>
         </div>
 
+        <label for="usersProjectStatus">Project Status</label>
         <div class="form-group">
-          <select>
+          <select class="form-select" id="usersProjectStatus" formControlName="projectStatus">
             <option *ngFor="let s of projectStatuses">{{s}}</option>
           </select>
         </div>
@@ -50,6 +51,16 @@
         <button class="btn btn-primary" type="submit" [disabled]="theForm.invalid">Submit</button>
 
       </form>
+
+
+      <hr>
+
+      <div>
+        <h3>The information entered for your project</h3>
+        <p>Project name: {{theForm.get('projectName').value}}</p>
+        <p>Email: {{theForm.get('email').value}}</p>
+        <p>Project status: {{theForm.get('projectStatus').value}}</p>
+      </div>
 
 
 
