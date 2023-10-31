@@ -10,11 +10,14 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AppComponent implements OnInit {
   title = 'forms-reactive-assignment';
   theForm: FormGroup;
-  forbiddenProjectNames = ['Test', 'test']
+  forbiddenProjectNames = ['Test', 'test'];
+  projectStatus = ''
+  projectStatuses = ['Stable', 'Critical', 'Finished'];
 
   ngOnInit(): void {
     this.theForm = new FormGroup({
       'projectName': new FormControl(null, [Validators.required, this.ForbiddenProjectNameValidator.bind(this)]),
+      'email': new FormControl(null, [Validators.required, Validators.email])
     })
   }
 

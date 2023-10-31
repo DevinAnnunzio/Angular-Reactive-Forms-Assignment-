@@ -28,6 +28,25 @@
 
         </div>
 
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+          type="email"
+          id="email"
+          class="form-control"
+          formControlName="email"
+          email
+          >
+          <span class="help-block" *ngIf="!theForm.get('email').valid && theForm.get('email').touched">Please enter a valid email</span>
+        </div>
+
+        <div class="form-group">
+          <select>
+            <option *ngFor="let s of projectStatuses">{{s}}</option>
+          </select>
+        </div>
+
+        
         <button class="btn btn-primary" type="submit" [disabled]="theForm.invalid">Submit</button>
 
       </form>
